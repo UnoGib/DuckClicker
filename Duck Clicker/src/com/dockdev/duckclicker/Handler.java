@@ -24,7 +24,7 @@ public class Handler {
 		for (int i = 0; i < item.size(); i++){
 			Item tempItem = item.get(i);
 			tempItem.render(g);
-			tempItem.iconRender(g);
+			//tempItem.iconRender(g);
 		}
 	}
 	public void addObject(GameObject object) {

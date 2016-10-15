@@ -19,4 +19,6 @@ public class Numbers {
 	public int duckdealerdps = 50;
 	public int duckdealercost = 2500;
 	
+	
+	
 }

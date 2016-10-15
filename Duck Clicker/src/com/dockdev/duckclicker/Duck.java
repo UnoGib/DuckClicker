@@ -23,12 +23,13 @@ public class Duck extends Canvas implements Runnable {
 	BufferedImage duckclicker;
 	// BufferedImage brahcha;
 	private Settings settings = new Settings();
-	private Clicking clicking = new Clicking(this, handler);
+	private Clicking clicking = new Clicking(this);
 	private Splash splash = new Splash(this);
 	private MainMenu mainmenu = new MainMenu(this);
 	private Market market = new Market();
 	public String aversion = "Version: " + "Alpha 0.2";
 	public int clicked = 0;
+	public int dps;
 	private boolean addedText = false;
 
 	
@@ -51,6 +52,7 @@ public class Duck extends Canvas implements Runnable {
 			// brahcha =
 			// ImageIO.read(getClass().getResourceAsStream("/brahcha.gif"));
 			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -94,9 +96,16 @@ public class Duck extends Canvas implements Runnable {
 	}
 
 	public void tick() {
-		if (currentState == GameState.Game) 
-		handler.tick();
-		else if(currentState == GameState.Splash){
+		if (currentState == GameState.Game) {
+			handler.tick();
+			for (int i = 0; i < handler.object.size(); i++) {
+				GameObject tempObject = handler.object.get(i);
+				if (tempObject.getID() == ID.Text) {
+					handler.removeObject(tempObject);
+				}
+			}
+			handler.addObject(new Text(240, 50, ID.Text, "Ducks: " + clicked, handler));
+		} else if (currentState == GameState.Splash) {
 			splash.tick();
 		}
 	}
@@ -117,12 +126,12 @@ public class Duck extends Canvas implements Runnable {
 			market.render(g);
 			handler.render(g);
 			g.drawImage(duckclicker, WIDTH / 2 - 60 - 15 - 15, HEIGHT / 2 - 60 - 15 - 15 - 15, null);
-		} else if(currentState == GameState.Menu){
+		} else if (currentState == GameState.Menu) {
 			mainmenu.render(g);
-		}else if(currentState == GameState.Splash){
+		} else if (currentState == GameState.Splash) {
 			splash.render(g);
 		}
-		
+
 		// g.drawImage(brahcha, WIDTH, HEIGHT, null);
 		g.setColor(Color.black);
 		if (addedText == false) {
@@ -157,11 +166,11 @@ public class Duck extends Canvas implements Runnable {
 	}
 
 
-	
-	
 
 	
-	public Config getConfig(){
+
+	public Config getConfig() {
+
 		return config;
 	}
 

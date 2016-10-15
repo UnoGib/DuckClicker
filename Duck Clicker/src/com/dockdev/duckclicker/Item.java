@@ -7,13 +7,12 @@ import javax.imageio.ImageIO;
 
 public abstract class Item {
 	
-	protected int price, dps, pval;
+	protected int dps, pval;
 	protected String image;
 	
 	BufferedImage icon;
 	
-	public Item(int price, int dps, int pval, String image) {
-		this.price = price;
+	public Item(int dps, int pval, String image) {
 		this.dps = dps;
 		this.image = image;
 		this.pval = pval;
@@ -30,10 +29,6 @@ public abstract class Item {
 	
 	public void iconRender(Graphics g){
 		g.drawImage(icon, 0, 0, null);
-	}
-	
-	public int getPrice(){
-		return price;
 	}
 	
 	public int getDps(){
