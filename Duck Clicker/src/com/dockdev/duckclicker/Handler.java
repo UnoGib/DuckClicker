@@ -1,3 +1,4 @@
+package com.dockdev.duckclicker;
 import java.awt.Graphics;
 import java.util.LinkedList;
 	

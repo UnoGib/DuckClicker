@@ -1,3 +1,4 @@
+package com.dockdev.duckclicker;
 import java.awt.Graphics;
 
 public abstract class GameObject {
