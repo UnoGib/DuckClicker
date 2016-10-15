@@ -32,7 +32,7 @@ public class Duck extends Canvas implements Runnable {
 		Splash, Menu, Game, Market, Settings
 	};
 
-	public GameState currentState = GameState.Menu;
+	public GameState currentState = GameState.Splash;
 
 	public Duck() {
 
