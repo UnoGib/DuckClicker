@@ -20,7 +20,7 @@ public class Splash {
 
 	public Splash(Duck duck) {
 		try {
-			background = ImageIO.read(getClass().getResourceAsStream("/dclickbg.png"));
+			background = ImageIO.read(getClass().getResourceAsStream("/Untitled-2.png"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -28,17 +28,16 @@ public class Splash {
 	}
 
 	public void render(Graphics g) {
-		Font fnt = new Font("ariel", 1, 50);
+		Font fnt = new Font("", 1, 50);
 		g.setFont(fnt);
 		g.setColor(Color.white);
 		g.drawImage(background, 0, 0, null);
-		g.drawString("DockDev", 200, Duck.HEIGHT / 2);
 	}
 
 	public void tick() {
 		if (duck.currentState == GameState.Splash) {
 			time++;
-			if (time == 180) {
+			if (time == 130) {
 				time = 0;
 				duck.currentState = GameState.Menu;
 			}
