@@ -9,7 +9,6 @@ import java.awt.image.BufferedImage;
 
 import javax.imageio.ImageIO;
 
-import com.dockdev.duckclicker.items.Cloner;
 import com.dockdev.duckclicker.menu.Splash;
 
 public class Duck extends Canvas implements Runnable {
@@ -51,7 +50,6 @@ public class Duck extends Canvas implements Runnable {
 			duckclicker = ImageIO.read(getClass().getResourceAsStream("/duckclicker.png"));
 			// brahcha =
 			// ImageIO.read(getClass().getResourceAsStream("/brahcha.gif"));
-			handler.addItem(new Cloner(100, 5, 1, "/duckclicker.png", this));
 			
 		} catch (Exception e) {
 			e.printStackTrace();
