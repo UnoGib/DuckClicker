@@ -20,7 +20,10 @@ public class Duck extends Canvas implements Runnable{
 	//BufferedImage brahcha;
 	private Settings settings = new Settings();
 	private Clicking clicking = new Clicking(this, handler);
-	//private Market market = new Market();
+
+	private Market market = new Market();
+
+
 	
 	public int clicked = 0;
 	private boolean addedText = false;
@@ -98,7 +101,10 @@ public class Duck extends Canvas implements Runnable{
 		  g.fillRect(0, 0, WIDTH, HEIGHT);
 		  g.setColor(Color.black);
 		  settings.render(g);
-		  //market.render(g);
+
+
+		  market.render(g);
+
 		  handler.render(g);
 		  g.drawImage(duckclicker, WIDTH / 2 - 60 - 15 - 15, HEIGHT / 2 - 60 - 15 - 15 - 15, null);
 		  //g.drawImage(brahcha,  WIDTH, HEIGHT, null);
