@@ -7,11 +7,9 @@ import com.dockdev.duckclicker.Duck.GameState;
 
 public class Clicking extends MouseAdapter {
 	private Duck duck;
-	private Handler handler;
 
-	public Clicking(Duck duck, Handler handler) {
+	public Clicking(Duck duck) {
 		this.duck = duck;
-		this.handler = handler;
 	}
 
 	public void mousePressed(MouseEvent e) {
@@ -23,24 +21,15 @@ public class Clicking extends MouseAdapter {
 				duck.clicked++;
 			}
 
-			for (int i = 0; i < handler.object.size(); i++) {
-				GameObject tempObject = handler.object.get(i);
-				if (tempObject.getID() == ID.Text) {
-					handler.removeObject(tempObject);
-				}
-
-				if (mouseOver(mx, my, 210, 150, 200, 64)) {
-					duck.currentState = GameState.Game;
-				}
-				handler.addObject(new Text(240, 50, ID.Text, "Ducks: " + duck.clicked, handler));
+			if (mouseOver(mx, my, 210, 150, 200, 64)) {
+				duck.currentState = GameState.Game;
 			}
-
 		}
 	}
 
 	public boolean mouseOver(int mx, int my, int x, int y, int width, int height) {
 		if (mx > x && mx < x + width) {
-			if (my > y && my < x + width) {
+			if (my > y && my < y + height) {
 				return true;
 			}
 			return false;

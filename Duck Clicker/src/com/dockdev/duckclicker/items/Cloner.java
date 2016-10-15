@@ -9,15 +9,22 @@ public class Cloner extends Item{
 
 	private Duck duck;
 	
-	public Cloner(int price, int dps, int pval, String image, Duck duck) {
-		super(price, dps, pval, image);
+	private int time = 0;
+	
+	public Cloner(int dps, int pval, String image, Duck duck) {
+		super(dps, pval, image);
 		this.duck = duck;
 	}
 
 	@Override
 	public void tick() {
-		System.out.println("tick");
-		duck.clicked = duck.clicked + dps / 60;
+		time++;
+		if(time == 60){
+			time = 0;
+			duck.clicked = duck.clicked + dps;
+			
+		}
+		
 	}
 
 	@Override
