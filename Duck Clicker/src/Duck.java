@@ -8,10 +8,9 @@ import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
 
 public class Duck extends Canvas implements Runnable{
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 4502326507414152596L;
+	
 	public static final int WIDTH = 640, HEIGHT = WIDTH / 12 * 9;
 	private Handler handler = new Handler();
 	private Thread thread;
@@ -21,9 +20,17 @@ public class Duck extends Canvas implements Runnable{
 	//BufferedImage brahcha;
 	private Settings settings = new Settings();
 	private Clicking clicking = new Clicking(this, handler);
+	//private Market market = new Market();
 	
 	public int clicked = 0;
 	private boolean addedText = false;
+	
+	public enum GameState{
+		Menu, Game, Market, Settings
+	};
+	
+	public GameState currentState = GameState.Game; 
+	
 	public Duck() {
 		
 		new Window(WIDTH, HEIGHT, "Duck Clicker Alpha", this);
@@ -91,6 +98,7 @@ public class Duck extends Canvas implements Runnable{
 		  g.fillRect(0, 0, WIDTH, HEIGHT);
 		  g.setColor(Color.black);
 		  settings.render(g);
+		  //market.render(g);
 		  handler.render(g);
 		  g.drawImage(duckclicker, WIDTH / 2 - 60 - 15 - 15, HEIGHT / 2 - 60 - 15 - 15 - 15, null);
 		  //g.drawImage(brahcha,  WIDTH, HEIGHT, null);
