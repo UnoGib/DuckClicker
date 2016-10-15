@@ -29,7 +29,7 @@ public class Duck extends Canvas implements Runnable {
 	private boolean addedText = false;
 
 	public enum GameState {
-		Menu, Game, Market, Settings
+		Splash, Menu, Game, Market, Settings
 	};
 
 	public GameState currentState = GameState.Menu;
