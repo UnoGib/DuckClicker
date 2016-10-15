@@ -9,6 +9,7 @@ import java.awt.image.BufferedImage;
 
 import javax.imageio.ImageIO;
 
+import com.dockdev.duckclicker.items.Cloner;
 import com.dockdev.duckclicker.menu.Splash;
 
 public class Duck extends Canvas implements Runnable {
@@ -30,7 +31,12 @@ public class Duck extends Canvas implements Runnable {
 	public String aversion = "Version: " + "Alpha 0.2";
 	public int clicked = 0;
 	private boolean addedText = false;
+
 	
+
+	private Config config = new Config();
+
+
 	public enum GameState {
 		Splash, Menu, Game, Market, Settings
 	};
@@ -42,10 +48,11 @@ public class Duck extends Canvas implements Runnable {
 		new Window(WIDTH, HEIGHT, "Duck Clicker Alpha", this);
 		System.out.println(aversion);
 		try {
-
 			duckclicker = ImageIO.read(getClass().getResourceAsStream("/duckclicker.png"));
 			// brahcha =
 			// ImageIO.read(getClass().getResourceAsStream("/brahcha.gif"));
+			handler.addItem(new Cloner(100, 5, 1, "/duckclicker.png", this));
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -151,6 +158,13 @@ public class Duck extends Canvas implements Runnable {
 		}
 	}
 
+
 	
 	
+
+	
+	public Config getConfig(){
+		return config;
+	}
+
 }
