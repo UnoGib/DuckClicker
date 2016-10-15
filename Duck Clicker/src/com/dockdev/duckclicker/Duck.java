@@ -9,6 +9,8 @@ import java.awt.image.BufferedImage;
 
 import javax.imageio.ImageIO;
 
+import com.dockdev.duckclicker.menu.Splash;
+
 public class Duck extends Canvas implements Runnable {
 
 	private static final long serialVersionUID = 4502326507414152596L;
@@ -22,6 +24,7 @@ public class Duck extends Canvas implements Runnable {
 	// BufferedImage brahcha;
 	private Settings settings = new Settings();
 	private Clicking clicking = new Clicking(this, handler);
+	private Splash splash = new Splash(this);
 	private MainMenu mainmenu = new MainMenu(this);
 	private Market market = new Market();
 
@@ -88,6 +91,9 @@ public class Duck extends Canvas implements Runnable {
 	public void tick() {
 		if (currentState == GameState.Game) 
 		handler.tick();
+		else if(currentState == GameState.Splash){
+			splash.tick();
+		}
 	}
 
 	public void render() {
@@ -108,6 +114,8 @@ public class Duck extends Canvas implements Runnable {
 			g.drawImage(duckclicker, WIDTH / 2 - 60 - 15 - 15, HEIGHT / 2 - 60 - 15 - 15 - 15, null);
 		} else if(currentState == GameState.Menu){
 			mainmenu.render(g);
+		}else if(currentState == GameState.Splash){
+			splash.render(g);
 		}
 		
 		// g.drawImage(brahcha, WIDTH, HEIGHT, null);
