@@ -119,7 +119,7 @@ public class Duck extends Canvas implements Runnable {
 		Font font2 = new Font("ariel", 1, 20);
 		g.setFont(font2);
 		g.setColor(Color.RED);
-		g.drawString("Alpha 0.1", 15, 440);
+		g.drawString("Alpha 0.2", 15, 440);
 		g.setColor(Color.yellow);
 		g.dispose();
 		bs.show();
