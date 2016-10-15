@@ -7,7 +7,7 @@ public class Settings {
 	
 	public void render(Graphics g){
 		
-		g.drawImage(settings,  WIDTH, HEIGHT, null);
+		g.drawImage(settings,  1, 2, null);
 		
 	}
 }
