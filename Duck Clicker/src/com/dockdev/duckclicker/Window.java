@@ -1,3 +1,4 @@
+package com.dockdev.duckclicker;
 import java.awt.Canvas;
 import java.awt.Dimension;
 
