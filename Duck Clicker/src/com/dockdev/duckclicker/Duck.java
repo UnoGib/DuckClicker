@@ -12,7 +12,7 @@ import javax.imageio.ImageIO;
 import com.dockdev.duckclicker.menu.Splash;
 
 public class Duck extends Canvas implements Runnable {
-
+	
 	private static final long serialVersionUID = 4502326507414152596L;
 
 	public static final int WIDTH = 640, HEIGHT = WIDTH / 12 * 9;
@@ -27,10 +27,10 @@ public class Duck extends Canvas implements Runnable {
 	private Splash splash = new Splash(this);
 	private MainMenu mainmenu = new MainMenu(this);
 	private Market market = new Market();
-
+	public String aversion = "Version: " + "Alpha 0.2";
 	public int clicked = 0;
 	private boolean addedText = false;
-
+	
 	public enum GameState {
 		Splash, Menu, Game, Market, Settings
 	};
@@ -38,9 +38,9 @@ public class Duck extends Canvas implements Runnable {
 	public GameState currentState = GameState.Splash;
 
 	public Duck() {
-
+		
 		new Window(WIDTH, HEIGHT, "Duck Clicker Alpha", this);
-
+		System.out.println(aversion);
 		try {
 
 			duckclicker = ImageIO.read(getClass().getResourceAsStream("/duckclicker.png"));
@@ -150,4 +150,7 @@ public class Duck extends Canvas implements Runnable {
 			e.printStackTrace();
 		}
 	}
+
+	
+	
 }
