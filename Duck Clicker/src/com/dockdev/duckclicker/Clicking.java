@@ -20,9 +20,23 @@ public class Clicking extends MouseAdapter {
 			if (duck.currentState == GameState.Game) {
 				duck.clicked++;
 			}
-
+		}
+		// Market
+		if (mouseOver(mx, my, 500, 340, 100, 100)) {
+			duck.currentState = GameState.Market;
+		}
+		if (duck.currentState == GameState.Menu) {
+			// Start Button
 			if (mouseOver(mx, my, 210, 150, 200, 64)) {
 				duck.currentState = GameState.Game;
+			}
+			//Shop
+			if(mouseOver(mx, my, 210, 250, 200, 64)){
+				duck.currentState = GameState.Market;
+			}
+			//Exit
+			if(mouseOver(mx, my, 210, 350, 200, 64)){
+				System.exit(0);
 			}
 		}
 	}

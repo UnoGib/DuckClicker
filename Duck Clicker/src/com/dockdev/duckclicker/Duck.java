@@ -9,6 +9,9 @@ import java.awt.image.BufferedImage;
 
 import javax.imageio.ImageIO;
 
+import com.dockdev.duckclicker.menu.MainMenu;
+import com.dockdev.duckclicker.menu.Market;
+import com.dockdev.duckclicker.menu.Settings;
 import com.dockdev.duckclicker.menu.Splash;
 
 public class Duck extends Canvas implements Runnable {
@@ -20,13 +23,13 @@ public class Duck extends Canvas implements Runnable {
 	private Thread thread;
 	private boolean running = false;
 
-	BufferedImage duckclicker;
+	public BufferedImage duckclicker;
 	// BufferedImage brahcha;
 	private Settings settings = new Settings();
 	private Clicking clicking = new Clicking(this);
 	private Splash splash = new Splash(this);
 	private MainMenu mainmenu = new MainMenu(this);
-	private Market market = new Market();
+	private Market market = new Market(this);
 
 	public int clicked = 0;
 	public int dps;
@@ -52,12 +55,7 @@ public class Duck extends Canvas implements Runnable {
 		}
 
 		this.addMouseListener(clicking);
-	}
-
-	public static void main(String kase[]) {
-
-		new Duck();
-
+		clicked = Integer.parseInt(getConfig().get("Cookies"));
 	}
 
 	public void run() {
@@ -102,6 +100,7 @@ public class Duck extends Canvas implements Runnable {
 		} else if (currentState == GameState.Splash) {
 			splash.tick();
 		}
+		getConfig().set("Cookies", "" + getDucks());
 	}
 
 	public void render() {
@@ -161,5 +160,9 @@ public class Duck extends Canvas implements Runnable {
 
 	public Config getConfig() {
 		return config;
+	}
+	
+	public int getDucks(){
+		return clicked;
 	}
 }
