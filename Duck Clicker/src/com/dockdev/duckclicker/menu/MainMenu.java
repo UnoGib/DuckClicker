@@ -1,4 +1,4 @@
-package com.dockdev.duckclicker;
+package com.dockdev.duckclicker.menu;
 
 
 import java.awt.Color;
@@ -7,6 +7,8 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
 import javax.imageio.ImageIO;
+
+import com.dockdev.duckclicker.Duck;
 
 public class MainMenu {
 	

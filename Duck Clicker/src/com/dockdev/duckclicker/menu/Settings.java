@@ -1,4 +1,4 @@
-package com.dockdev.duckclicker;
+package com.dockdev.duckclicker.menu;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
