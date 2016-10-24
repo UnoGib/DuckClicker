@@ -38,9 +38,13 @@ public class Duck extends Canvas implements Runnable {
 
 	public enum GameState {
 		Splash, Menu, Game, Market, Settings
-	};
+	}
+	public enum MarketTab {
+		Powerups, DPS
+	}
 
 	public GameState currentState = GameState.Splash;
+	public MarketTab currentTab = MarketTab.DPS;
 
 	public Duck() {
 
