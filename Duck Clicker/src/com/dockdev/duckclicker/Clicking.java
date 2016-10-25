@@ -12,9 +12,9 @@ public class Clicking extends MouseAdapter {
 		this.duck = duck;
 	}
 
-	public void mousePressed(MouseEvent e) {
-		int mx = e.getX();
-		int my = e.getY();
+	public void mousePressed(MouseEvent mouse) {
+		int mx = mouse.getX();
+		int my = mouse.getY();
 
 		if (mouseOver(mx, my, Duck.WIDTH / 2 - 60 - 15 - 15, Duck.HEIGHT / 2 - 60 - 15 - 15 - 15, 158, 158)) {
 			if (duck.currentState == GameState.Game) {
@@ -23,7 +23,10 @@ public class Clicking extends MouseAdapter {
 		}
 		// Market
 		if (mouseOver(mx, my, 500, 340, 100, 100)) {
-			duck.currentState = GameState.Market;
+			if (duck.currentState == GameState.Market){
+				duck.currentState = GameState.Game;}
+			if (duck.currentState == GameState.Game){
+				duck.currentState = GameState.Market;}
 		}
 		if (duck.currentState == GameState.Menu) {
 			// Start Button
