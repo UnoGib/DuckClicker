@@ -24,7 +24,7 @@ public class Duck extends Canvas implements Runnable{
 	private boolean running = false;
 
 	public BufferedImage duckclicker;
-	// BufferedImage brahcha;
+	public BufferedImage marketexit;
 	private Settings settings = new Settings();
 	private Clicking clicking = new Clicking(this);
 	private Splash splash = new Splash(this);
@@ -45,19 +45,27 @@ public class Duck extends Canvas implements Runnable{
 
 	public enum GameState {
 		Splash, Menu, Game, Market, Settings
-	};
+	}
+	public enum MarketTab {
+		Powerups, DPS
+	}
 
 	public GameState currentState = GameState.Splash;
+
 	public static void main(String[] args) {
 		
 	}
+
+	public MarketTab currentTab = MarketTab.DPS;
+
+
 	public Duck() {
 			
 		new Window(WIDTH, HEIGHT, "Duck Clicker Alpha", this);
 		System.out.println(aversion);
 		try {
 			duckclicker = ImageIO.read(getClass().getResourceAsStream("/duckclicker.png"));
-			// brahcha =
+			marketexit = ImageIO.read(getClass().getResourceAsStream("marketexit.png"));
 			// ImageIO.read(getClass().getResourceAsStream("/brahcha.gif"));
 			
 

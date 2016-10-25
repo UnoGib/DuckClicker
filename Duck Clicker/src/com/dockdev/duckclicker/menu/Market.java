@@ -12,11 +12,13 @@ import com.dockdev.duckclicker.Duck.GameState;
 public class Market {
 
 	BufferedImage market;
+	BufferedImage exit;
 	private Duck duck;
 
 	public Market(Duck duck) {
 		try {
 			market = ImageIO.read(getClass().getResourceAsStream("/markethundp.png"));
+			exit = ImageIO.read(getClass().getResourceAsStream("/marketexit.png"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -30,6 +32,7 @@ public class Market {
 			g.setColor(Color.YELLOW);
 			g.fillRect(0, 0, Duck.WIDTH, Duck.HEIGHT);
 			g.drawImage(duck.duckclicker, 15, 15, 100, 100, null);
+			g.drawImage(exit, 500, 340, null);
 		}
 	}
 
