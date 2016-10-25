@@ -14,8 +14,8 @@ import com.dockdev.duckclicker.menu.Market;
 import com.dockdev.duckclicker.menu.Settings;
 import com.dockdev.duckclicker.menu.Splash;
 
-public class Duck extends Canvas implements Runnable {
-	
+public class Duck extends Canvas implements Runnable{
+
 	private static final long serialVersionUID = 4502326507414152596L;
 
 	public static final int WIDTH = 640, HEIGHT = WIDTH / 12 * 9;
@@ -39,7 +39,6 @@ public class Duck extends Canvas implements Runnable {
 	public int dps;
 	private boolean addedText = false;
 
-	
 
 	private Config config = new Config();
 
@@ -49,9 +48,11 @@ public class Duck extends Canvas implements Runnable {
 	};
 
 	public GameState currentState = GameState.Splash;
-
-	public Duck() {
+	public static void main(String[] args) {
 		
+	}
+	public Duck() {
+			
 		new Window(WIDTH, HEIGHT, "Duck Clicker Alpha", this);
 		System.out.println(aversion);
 		try {
