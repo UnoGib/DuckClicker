@@ -18,7 +18,8 @@ public class Numbers {
 	public int purplizercost = 500;
 	public int duckdealerdps = 50;
 	public int duckdealercost = 2500;
-	
+	public int babydps = 500;
+	public int babycost = 2500;
 	
 	
 }
